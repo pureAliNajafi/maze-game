@@ -1,0 +1,17 @@
+{
+  "name": "maze game",
+  "short_name": "maze",
+  "theme_color": "dark",
+  "background_color": "dark",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
