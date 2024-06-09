@@ -1,6 +1,4 @@
-# Next.js & NextUI Template
-
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+# Maze Game
 
 ## Technologies Used
 
@@ -11,6 +9,8 @@ This is a template for creating applications using Next.js 14 (app directory) an
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [next-pwa](https://ducanh-next-pwa.vercel.app/)
+- [Redux toolkit](https://github.com/pacocoursey/next-themes](https://redux-toolkit.js.org/))
 
 ## How to Use
 
@@ -29,6 +29,7 @@ You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
 ```bash
 npm install
 ```
+Try adding `--force` at the end if failed
 
 ### Run the development server
 
