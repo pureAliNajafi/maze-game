@@ -80,7 +80,7 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
     setAvailableMoves(
       directions.filter((d) => isValidMove(d.direction[0], d.direction[1])).map((d) => d.label)
     );
-  }, [direction, started, solved]);
+  }, [maze, direction, started, solved]);
 
   useEffect(() => {
     isNewMaze && solved && dispatch(incrementSolvedCount(difficulty));
