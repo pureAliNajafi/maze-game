@@ -70,7 +70,7 @@ function Controller({ setDirection, availableMoves, controll }: ControllerProps)
 
     // className="fixed bottom-[40px] right-[25px] z-30 duration-200"
     >
-      <ul className="bg-gray-300 bg-opacity-25  w-[100px] aspect-square flex items-start flex-wrap fixed bottom-[50px] left-1/2 -translate-x-1/2 ">
+      <ul className="res-controller bg-gray-300 bg-opacity-25  w-[100px] aspect-square flex items-start flex-wrap origin-bottom /xl:scale-[1.1] ">
         {directions.map((item) =>
           item.label == "stay" ? (
             <li key={item.label} className="w-1/3 aspect-square  flex items-center justify-center">

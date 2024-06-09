@@ -87,9 +87,9 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
   }, [isNewMaze, solved]);
 
   return (
-    <>
-      <div className="mt-2 md:mt-5 origin-top lg:scale-[1.1] xl:scale-[1.2]">
-        <div className="my-1 /border-[#a6a6a8]  /dark:border-[#343a40] dark:text-[#a6a6a8] text-[#343a40] /border-2 /p-1 flex justify-between items-center">
+    <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex res-layout items-center ">
+      <div className="res-game">
+        <div className="my-1 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
           <Progress
             solvedCounts={solvedCounts}
             currentDifficulty={difficulty}
@@ -118,6 +118,6 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
         />
       </div>
       <Controller setDirection={setDirection} availableMoves={availableMoves} controll={solved} />
-    </>
+    </section>
   );
 }

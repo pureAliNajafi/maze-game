@@ -4,3 +4,47 @@
 button {
   overflow: visible !important;
 }
+.res-layout {
+  flex-direction: column;
+  justify-content: space-between;
+}
+.res-game {
+  --tw-scale-x: 0.7;
+  --tw-scale-y: 0.7;
+  transform: scale(0.7, 0.7); /* default height */
+  --tw-h: 400px;
+  height: 400px;
+}
+.res-controller {
+  width: 90px; /* default height */
+}
+
+@media (min-height: 540px) {
+  .res-controller {
+    width: 100px;
+  }
+}
+
+@media (min-height: 670px) {
+  .res-game {
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: scale(1);
+    margin-top: 8px;
+    height: auto;
+  }
+}
+@media (min-height: 740px) {
+  .res-controller {
+    width: 110px;
+  }
+}
+@media (orientation: landscape) {
+  .res-layout {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .res-controller {
+    width: 120px;
+  }
+}

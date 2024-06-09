@@ -33,7 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />{" "}
       </Head>
 
-      <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={clsx(
+          "overflow-y-hidden min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen bg-[#F1F6F9] dark:bg-[#141414] duration-300">
             <Navbar />
