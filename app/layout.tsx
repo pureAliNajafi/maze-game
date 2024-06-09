@@ -35,12 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body
         className={clsx(
-          "overflow-y-hidden min-h-screen bg-background font-sans antialiased",
+          "overflow-y-hidden min-h-screen bg-[#F1F6F9] dark:bg-[#141414] font-sans antialiased",
           fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen bg-[#F1F6F9] dark:bg-[#141414] duration-300">
+          <div className="relative flex flex-col h-screen  duration-300">
             <Navbar />
             <main className="container mx-auto max-w-4xl pt-3 lg:pt-6 px-6 flex-grow">
               <section dir="ltr" className="flex flex-col items-center justify-center">

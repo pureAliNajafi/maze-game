@@ -11,6 +11,11 @@ module.exports = {
 
   theme: {
     extend: {
+      screens: {
+        short: { raw: "(min-height: 540px)" },
+        average: { raw: "(min-height:670px)" },
+        tall: { raw: "(min-height:740px)" },
+      },
       colors: {
         block: "#a6a6a8",
         available: "#cecece",

@@ -87,8 +87,8 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
   }, [isNewMaze, solved]);
 
   return (
-    <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex res-layout items-center ">
-      <div className="res-game origin-top">
+    <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex flex-col justify-between items-center landscape:flex-row landscape:justify-around">
+      <div className="/res-game scale-[0.7] h-[300px] origin-top average:scale-[1] average:mt-2 average:h-auto">
         <div className="my-1 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
           <Progress
             solvedCounts={solvedCounts}
