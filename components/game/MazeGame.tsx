@@ -88,7 +88,7 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
 
   return (
     <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex res-layout items-center ">
-      <div className="res-game">
+      <div className="res-game origin-top">
         <div className="my-1 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
           <Progress
             solvedCounts={solvedCounts}

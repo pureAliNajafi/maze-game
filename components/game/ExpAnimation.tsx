@@ -23,10 +23,6 @@ const ExpAnimation = ({ started, rowIndex, colIndex, currentDifficulty }: Props)
             duration,
             ease: "easeOut",
           }}
-          // exit={{
-          //   ...motionPropsObj.exit,
-          //   transition: { duration, ease: "easeOut" },
-          // }}
           exit={{
             x: (Math.random() - 0.5) * 300,
             y: (Math.random() - 0.5) * 300,

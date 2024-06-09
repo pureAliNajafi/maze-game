@@ -40,18 +40,10 @@ const GameBoard = ({
     }
     return -1;
   };
-  // useEffect(() => {}, []);
   return (
     <>
-      <div
-        // style={{ width: 8 * cellSize + "px"  }}
-        className="my-2 w-[320px] relative z-20 overflow-x-auto aspect-square  bg-block dark:bg-dark-block flex items-center justify-center  /duration-200
-      "
-      >
-        <motion.ul
-          // style={{ width: maze[1].length * cellSize + "px" }}
-          className="w-[280px] overflow-hidden /aspect-square /bg-orange-200 /dark:bg-orange-400 /p-1 flex items-start flex-wrap /gap-[1px]"
-        >
+      <div className="my-2 w-[320px] relative z-20 overflow-x-auto aspect-square  bg-block dark:bg-dark-block flex items-center justify-center ">
+        <motion.ul className="w-[280px] overflow-hidden flex items-start flex-wrap /gap-[1px]">
           {maze.map((row, rowIndex) =>
             row.map((col: number, colIndex: number) => (
               <motion.li
