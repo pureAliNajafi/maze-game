@@ -56,7 +56,7 @@ export default function HowToPlay() {
                 <p>
                   In this game, you control the yellow cell [
                   <span className="inline-block align-middle mx-1 w-4 aspect-square bg-yellow-400 dark:bg-yellow-500" />
-                  ] . Your mission is to navigate through the maze and reach the flag[
+                  ] . Your mission is to navigate through the maze and reach the flag [
                   <span className="inline-block align-middle mx-1 w-4 aspect-square">
                     <RiFlag2Fill size={18} />
                   </span>

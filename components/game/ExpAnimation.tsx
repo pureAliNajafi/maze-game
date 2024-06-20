@@ -1,7 +1,7 @@
 import { motionProps } from "@/config/motion";
 import { Difficulty } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { memo } from "react";
 
 type Props = {
   started: boolean;
@@ -11,6 +11,7 @@ type Props = {
 };
 
 const ExpAnimation = ({ started, rowIndex, colIndex, currentDifficulty }: Props) => {
+  rowIndex == 0 && colIndex == 0 && console.log("renderd");
   const duration = ((rowIndex + 1) * (colIndex + 1)) / 9;
 
   return (
@@ -19,10 +20,7 @@ const ExpAnimation = ({ started, rowIndex, colIndex, currentDifficulty }: Props)
         <motion.span
           className="w-full h-full bg-[#a6a6a8] dark:bg-[#343a40]"
           {...motionProps()}
-          transition={{
-            duration,
-            ease: "easeOut",
-          }}
+          transition={{ duration, ease: "easeOut" }}
           exit={{
             x: (Math.random() - 0.5) * 300,
             y: (Math.random() - 0.5) * 300,
@@ -37,4 +35,8 @@ const ExpAnimation = ({ started, rowIndex, colIndex, currentDifficulty }: Props)
   );
 };
 
-export default ExpAnimation;
+const ExpAnimationWrapper = memo(ExpAnimation);
+
+ExpAnimationWrapper.displayName = "ExpAnimation";
+
+export default ExpAnimationWrapper;
