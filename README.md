@@ -1,5 +1,5 @@
 # Maze Game
-
+[maze-game-psi.vercel.app](https://maze-game-psi.vercel.app)
 ## Technologies Used
 
 - [Next.js 14](https://nextjs.org/docs/getting-started)
