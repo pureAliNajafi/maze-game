@@ -58,7 +58,7 @@ const GameBoard = ({
                     ? "bg-emerald-500 dark:bg-emerald-600 "
                     : "bg-yellow-400 dark:bg-yellow-500"
                   : "bg-available dark:bg-dark-available /0"
-                : "/bg-[#a6a6a8] /dark:bg-[#343a40] /1"
+                : "/1"
             }
              duration-200`}
               >
@@ -81,11 +81,7 @@ const GameBoard = ({
                       .slice(0, -1) //dont want deg of last arrow
                       .some((s: any) => s[0] === rowIndex && s[1] === colIndex) && (
                       <motion.span {...motionProps()}>
-                        {findDeg(rowIndex, colIndex) === -1 ? (
-                          <BsX size={16} />
-                        ) : (
-                          <Arrow rotate={findDeg(rowIndex, colIndex)} />
-                        )}
+                        <Arrow rotate={findDeg(rowIndex, colIndex)} />
                       </motion.span>
                     )}
                 </AnimatePresence>

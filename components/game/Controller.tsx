@@ -66,11 +66,8 @@ function Controller({ setDirection, availableMoves, controll }: ControllerProps)
   /// get from parent
 
   return (
-    <div
-
-    // className="fixed bottom-[40px] right-[25px] z-30 duration-200"
-    >
-      <ul className="w-[90px] short:w-[100px] tall:w-[110px] landscape:w-[120px] res-controller bg-gray-300 bg-opacity-25 aspect-square flex items-start flex-wrap origin-bottom /xl:scale-[1.1] ">
+    <div className="bg-[#d4d4d8] dark:bg-[#3f3f46] duration-250">
+      <ul className="w-[90px] short:w-[100px] tall:w-[110px] landscape:w-[120px] res-controller bg-opacity-25 aspect-square flex items-start flex-wrap origin-bottom ">
         {directions.map((item) =>
           item.label == "stay" ? (
             <li key={item.label} className="w-1/3 aspect-square  flex items-center justify-center">
