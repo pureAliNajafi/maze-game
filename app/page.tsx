@@ -1,8 +1,8 @@
-// "use client";
-import { mazeGenerator } from "@/util/mazeGenerator";
-import MazeGame from "@/components/game/MazeGame";
+import dynamic from "next/dynamic";
+const DynamicMaze = dynamic(() => import("../components/game/MazeGame"), {
+  ssr: false,
+  loading: () => <p className="mt-[30vh]">Generating the maze...</p>,
+});
 export default function GamePage() {
-  const firstMaze = mazeGenerator("nov");
-
-  return <MazeGame firstMaze={firstMaze} />;
+  return <DynamicMaze />;
 }

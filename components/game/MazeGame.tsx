@@ -10,15 +10,16 @@ import { CurrentLocation, Difficulty, SolvedCounts } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/config/redux/store";
 import { incrementSolvedCount } from "@/config/redux/slices/solvedCountsSlice";
+import { mazeGenerator } from "@/util/mazeGenerator";
 
-export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
-  const [maze, setMaze] = useState<number[][]>(firstMaze);
+export default function MazeGame() {
+  const [maze, setMaze] = useState<number[][]>(mazeGenerator("nov"));
   const [currentLocation, setCurrentLocation] = useState<CurrentLocation>({ row: 0, col: 0 });
   const [availableMoves, setAvailableMoves] = useState<string[]>([]);
   const [direction, setDirection] = useState<string>("stay");
 
   const memoizedSolutionPath = useMemo(() => {
-    // caching the solution path to avoid re-rendering the component when maze changes
+    // caching the solution path to avoid re-rendering the component when maze is being solved
     return mazePathFinder(maze);
   }, [maze]);
 
@@ -80,7 +81,7 @@ export default function MazeGame({ firstMaze }: { firstMaze: number[][] }) {
     setAvailableMoves(
       directions.filter((d) => isValidMove(d.direction[0], d.direction[1])).map((d) => d.label)
     );
-  }, [maze, direction, solved]);
+  }, [maze, started, direction, solved]);
 
   useEffect(() => {
     isNewMaze && solved && dispatch(incrementSolvedCount(difficulty));
