@@ -18,15 +18,14 @@ const SwipeController = ({ setDirection, controll }: SwipeControllerProps) => {
     const deg = degCalculator(x, y);
     console.log(deg, Math.abs(deg));
     if (Math.abs(deg) > 337.5) {
-      setDirection("right"); // between 335.5 and 0
+      setDirection("right"); // between -337.5 and 0
       return;
     }
-    const closestDirectionObj = directions.find((d) => {
-      return Math.abs(d.deg - deg) <= 22.5;
-    });
+    const closestDirectionObj = directions.find((d) => Math.abs(d.deg - deg) <= 22.5);
     let closestDirection = closestDirectionObj?.label;
     setDirection(closestDirection ? closestDirection : "stay");
   };
+
   return (
     <motion.div
       dragSnapToOrigin
