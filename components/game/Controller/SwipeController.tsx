@@ -16,6 +16,11 @@ const SwipeController = ({ setDirection, controll }: SwipeControllerProps) => {
   };
   const findDirection = (x: number, y: number) => {
     const deg = degCalculator(x, y);
+    console.log(deg, Math.abs(deg));
+    if (Math.abs(deg) > 337.5) {
+      setDirection("right"); // between 335.5 and 0
+      return;
+    }
     const closestDirectionObj = directions.find((d) => {
       return Math.abs(d.deg - deg) <= 22.5;
     });
@@ -29,9 +34,8 @@ const SwipeController = ({ setDirection, controll }: SwipeControllerProps) => {
       dragControls={useDragControls()}
       dragElastic={1}
       onDragEnd={(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-        if (Math.abs(info.offset.x) > 75 || Math.abs(info.offset.y) > 75) {
-          findDirection(info.offset.x, -info.offset.y);
-        }
+        // if (Math.abs(info.offset.x) > 75 || Math.abs(info.offset.y) > 75)
+        findDirection(info.offset.x, -info.offset.y);
       }}
       className="cursor-move z-[1] absolute top-0 left-0 w-full h-full /bg-yellow-600"
     />
