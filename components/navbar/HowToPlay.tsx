@@ -47,7 +47,7 @@ export default function HowToPlay() {
               <ModalHeader className="res:bg-red-400 text-2xl flex flex-col gap-1">
                 How To Play?
               </ModalHeader>
-              <ModalBody className="py-0 animate-scrollable [&>p]:text-gray-700 [&>p]:dark:text-gray-200">
+              <ModalBody className="py-0 pt-[8px] animate-scrollable [&>p]:text-gray-700 [&>p]:dark:text-gray-200">
                 <h3 className="text-xl font-bold">
                   Hey there! Ready to challenge your brain? Let’s dive into this tutorial.{" "}
                 </h3>

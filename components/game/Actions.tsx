@@ -63,7 +63,7 @@ const Actions = ({
     };
   }, [solved]);
   return (
-    <div className="flex justify-between">
+    <div className="pt-2 flex justify-between">
       <Button onClick={() => showSolution()} className={classNames}>
         <PiPathBold size={24} />
       </Button>

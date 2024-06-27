@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="overflow-hidden relative flex flex-col h-screen  duration-300">
+          <div className="overflow-hidden relative z-40 flex flex-col h-screen  duration-300">
             <Navbar />
             <main className="container mx-auto max-w-4xl pt-3 lg:pt-6 px-6 flex-grow">
               <section dir="ltr" className="flex flex-col items-center justify-center">

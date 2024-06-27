@@ -26,16 +26,16 @@ module.exports = {
       },
       animation: {
         shimmer: "shimmer 2.5s ease-in-out infinite",
-        scrollable: "scrollable 1s ease-in-out 1",
+        scrollable: "scrollable 1s ease-out 1",
       },
       keyframes: {
         shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
         scrollable: {
-          "0%": { paddingTop: "0px" },
-          "50%": { paddingTop: "20px" },
-          "100%": { paddingTop: "0px" },
+          "0%": { paddingTop: "8px" },
+          "50%": { paddingTop: "0px" },
+          "100%": { paddingTop: "8px" },
         },
       },
     },
