@@ -4,17 +4,10 @@ import { useState, useEffect } from "react";
 import Arrow from "../Arrow";
 import { Button } from "@nextui-org/button";
 import { directions } from "@/config/directions";
-interface ButtonControllerProps {
-  setDirection: (direction: string) => void;
-  availableMoves: string[];
-  controll: boolean;
-}
-function ButtonController({ setDirection, availableMoves, controll }: ButtonControllerProps) {
-  // const [direction, setDirection] = useState<string | null>(null);
+import { ControllerProps } from ".";
 
+function ButtonController({ setDirection, availableMoves, controll }: ControllerProps) {
   useEffect(() => {}, [controll]);
-  /// get from parent
-
   return (
     <>
       <div className="relative z-40 bg-[#d4d4d8] dark:bg-[#3f3f46] duration-250">

@@ -3,7 +3,7 @@ import ButtonController from "./ButtonController";
 import KeyBoardController from "./KeyBoardController";
 import SwipeController from "./SwipeController";
 
-interface ControllerProps {
+export interface ControllerProps {
   setDirection: (direction: string) => void;
   availableMoves: string[];
   controll: boolean;
@@ -21,7 +21,14 @@ function Controller({ setDirection, availableMoves, controll }: ControllerProps)
         availableMoves={availableMoves}
         controll={controll}
       />
-      {!controll && <SwipeController setDirection={setDirection} controll={controll} />}
+      {/* when maze solved,it won't be able to move */}
+      {!controll && (
+        <SwipeController
+          setDirection={setDirection}
+          availableMoves={availableMoves}
+          controll={controll}
+        />
+      )}
     </>
   );
 }

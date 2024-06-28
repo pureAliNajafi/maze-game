@@ -1,12 +1,9 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-interface KeyBoardControllerProps {
-  setDirection: (direction: string) => void;
-  availableMoves: string[];
-  controll: boolean;
-}
-function KeyBoardController({ setDirection, availableMoves, controll }: KeyBoardControllerProps) {
+import { ControllerProps } from ".";
+
+function KeyBoardController({ setDirection, availableMoves, controll }: ControllerProps) {
   const [keys, setKeys] = useState({
     ArrowLeft: false,
     ArrowUp: false,
