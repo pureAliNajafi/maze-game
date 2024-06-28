@@ -84,9 +84,9 @@ export default function MazeGame() {
   }, [isNewMaze, solved]);
 
   return (
-    <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex flex-col justify-between items-center landscape:flex-row landscape:justify-around">
-      <div className="relative z-50 scale-[0.7] h-[300px] origin-top average:scale-[1] average:mt-2 average:h-auto">
-        <div className="pt-1 pb-2 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
+    <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex flex-col justify-around items-center landscape:flex-row">
+      <div className="relative z-[60] scale-[0.7] h-[300px] origin-top average:scale-[1] average:mt-2 average:h-auto">
+        <div className=" pt-1 pb-2 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
           <Progress
             solvedCounts={solvedCounts}
             currentDifficulty={difficulty}

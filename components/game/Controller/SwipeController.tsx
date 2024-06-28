@@ -85,7 +85,7 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
     // console.log(dirIsSafe);
     console.log(currentX);
   }, [currentX, currentY, startX, startY]);
-
+  const [z, setZ] = useState(45);
   return (
     <>
       <motion.div
@@ -96,7 +96,12 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
         onDragEnd={(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
           goDirection(info.offset.x, -info.offset.y);
         }}
-        className="cursor-move z-[45] absolute top-0 left-0 w-full h-full"
+        onMouseDown={() => setZ(1000)}
+        onTouchStart={() => setZ(1000)}
+        onMouseUp={() => setZ(40)}
+        onTouchEnd={() => setZ(40)}
+        style={{ zIndex: z }}
+        className="/bg-red-500 cursor-move /z-[45] absolute top-0 left-0 w-full h-full"
       >
         <motion.div
           onMouseDown={handleOnMouseDown}
@@ -120,7 +125,8 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
               opacity: 0,
               transition: { ease: "easeOut", duration: 0.3 },
             }}
-            className="w-full h-full absolute left-0 top-0 z-[44]"
+            style={{ zIndex: z - 20 }}
+            className="w-full h-full absolute left-0 top-0 /z-[44]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.line

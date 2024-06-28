@@ -2,6 +2,8 @@ import React from "react";
 import ButtonController from "./ButtonController";
 import KeyBoardController from "./KeyBoardController";
 import SwipeController from "./SwipeController";
+import { useSelector } from "react-redux";
+import { RootState } from "@/config/redux/store";
 
 export interface ControllerProps {
   setDirection: (direction: string) => void;
@@ -9,27 +11,31 @@ export interface ControllerProps {
   controll: boolean;
 }
 function Controller({ setDirection, availableMoves, controll }: ControllerProps) {
+  const swipeMode = useSelector((state: RootState) => state.swipeMode);
+
   return (
-    <div>
+    <>
       <KeyBoardController
         setDirection={setDirection}
         availableMoves={availableMoves}
         controll={controll}
       />
-      <ButtonController
-        setDirection={setDirection}
-        availableMoves={availableMoves}
-        controll={controll}
-      />
-      {/* when maze solved,it won't be able to move */}
-      {!controll && (
-        <SwipeController
+      {!swipeMode ? (
+        <ButtonController
           setDirection={setDirection}
           availableMoves={availableMoves}
           controll={controll}
         />
+      ) : (
+        !controll && (
+          <SwipeController
+            setDirection={setDirection}
+            availableMoves={availableMoves}
+            controll={controll}
+          />
+        )
       )}
-    </div>
+    </>
   );
 }
 
