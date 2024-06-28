@@ -11,7 +11,7 @@ import InstallButton from "./InstallButton";
 export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="lg" position="sticky" className="bg-none duration-0 bg-background/0">
-      <ul className="relative w-full flex justify-between items-center">
+      <ul className="w-full flex justify-between items-center">
         <li className="flex gap-x-4">
           <Link isExternal href={siteConfig.links.github} aria-label="Github">
             <GithubIcon className="text-default-500" />

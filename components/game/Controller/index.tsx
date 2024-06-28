@@ -10,7 +10,7 @@ export interface ControllerProps {
 }
 function Controller({ setDirection, availableMoves, controll }: ControllerProps) {
   return (
-    <>
+    <div>
       <KeyBoardController
         setDirection={setDirection}
         availableMoves={availableMoves}
@@ -29,7 +29,7 @@ function Controller({ setDirection, availableMoves, controll }: ControllerProps)
           controll={controll}
         />
       )}
-    </>
+    </div>
   );
 }
 

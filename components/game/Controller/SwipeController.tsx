@@ -7,14 +7,14 @@ import { dir } from "console";
 
 const directions = dirs.filter((d) => d.label !== "stay");
 
+const degCalculator = (x: number, y: number) => {
+  let deg = (Math.atan(y / x) * 180) / Math.PI;
+  x < 0 ? (deg += 180) : y < 0 && (deg += 360); // this line ... 🙂
+  return -deg;
+};
+
 const SwipeController = ({ setDirection, availableMoves, controll }: ControllerProps) => {
-  const [isGoodToGO, setIsGoodToGO] = useState(false);
-  const degCalculator = (x: number, y: number) => {
-    let deg = (Math.atan(y / x) * 180) / Math.PI;
-    x < 0 ? (deg += 180) : y < 0 && (deg += 360); // this line ... 🙂
-    return -deg;
-  };
-  const goDirection = (x: number, y: number, hoverIsSafe = false) => {
+  const goDirection = (x: number, y: number, dirIsSafe = false) => {
     const deg = degCalculator(x, y);
     let dir = "stay";
     // console.log(deg, Math.abs(deg));
@@ -25,16 +25,15 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
       let closestDirection = closestDirectionObj?.label;
       dir = closestDirection ? closestDirection : "stay";
     }
-    /// just want the boolean value
-    if (hoverIsSafe) return availableMoves.some((m) => m === dir);
-    setDirection(dir);
+
+    const isAvailable = availableMoves.some((m) => m === dir);
+    if (isAvailable) {
+      if (dirIsSafe) return isAvailable;
+      setDirection(dir);
+    }
   };
 
   ///////////
-
-  useEffect(() => {
-    goDirection;
-  }, []);
   /////////
   ///////
   /////
@@ -45,7 +44,7 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
   const [currentX, setCurrentX] = useState(startX);
   const [currentY, setCurrentY] = useState(startY);
 
-  const handleMouseDown = (event: React.MouseEvent) => {
+  const handleOnMouseDown = (event: React.MouseEvent) => {
     setIsDrawing(true);
     setCurrentX(event.clientX);
     setCurrentY(event.clientY);
@@ -53,7 +52,16 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
     setStartY(event.clientY);
   };
 
-  const handleMouseUp = (event: React.MouseEvent) => {
+  const handleTouchStart = (event: React.TouchEvent) => {
+    setIsDrawing(true);
+    const touch = event.touches[0];
+    setCurrentX(touch.clientX);
+    setCurrentY(touch.clientY);
+    setStartX(touch.clientX);
+    setStartY(touch.clientY);
+  };
+
+  const handleUp = () => {
     setIsDrawing(false);
   };
 
@@ -63,11 +71,19 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
       setCurrentY(event.clientY);
     }
   };
+  const handleTouchMove = (event: React.TouchEvent) => {
+    const touch = event.touches[0];
+    if (isDrawing) {
+      setCurrentX(touch.clientX);
+      setCurrentY(touch.clientY);
+    }
+  };
   const [dirIsSafe, setDirIsSafe] = useState(false);
   useEffect(() => {
     const check = goDirection(currentX - startX, -(currentY - startY), true);
     setDirIsSafe(check ? check : false);
-    console.log(dirIsSafe);
+    // console.log(dirIsSafe);
+    console.log(currentX);
   }, [currentX, currentY, startX, startY]);
 
   return (
@@ -80,12 +96,18 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
         onDragEnd={(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
           goDirection(info.offset.x, -info.offset.y);
         }}
-        className="cursor-move z-[6] absolute top-0 left-0 w-full h-full"
+        className="cursor-move z-[45] absolute top-0 left-0 w-full h-full"
       >
         <motion.div
-          onMouseDown={handleMouseDown}
+          onMouseDown={handleOnMouseDown}
+          onTouchStart={handleTouchStart}
+          //
           onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
+          onTouchMove={handleTouchMove}
+          //
+
+          onMouseUp={handleUp}
+          onTouchEnd={handleUp}
           className="w-full h-full"
         ></motion.div>
       </motion.div>
@@ -98,7 +120,7 @@ const SwipeController = ({ setDirection, availableMoves, controll }: ControllerP
               opacity: 0,
               transition: { ease: "easeOut", duration: 0.3 },
             }}
-            className="w-full h-full absolute left-0 top-0 z-[5]"
+            className="w-full h-full absolute left-0 top-0 z-[44]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.line

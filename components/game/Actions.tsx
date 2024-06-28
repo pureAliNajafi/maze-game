@@ -30,7 +30,7 @@ const Actions = ({
   setMaze,
 }: Props) => {
   const classNames =
-    "h-[40px] w-[40px] min-w-0 p-1 bg-emerald-500 dark:bg-emerald-600 text-slate-200 rounded-none";
+    "relative z-50 h-[40px] w-[40px] min-w-0 p-1 bg-emerald-500 dark:bg-emerald-600 text-slate-200 rounded-none";
   const showSolution = () => {
     setShowSolutionPath(!showSolutionPath);
   };

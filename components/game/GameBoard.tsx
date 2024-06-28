@@ -42,7 +42,7 @@ const GameBoard = ({
   };
   return (
     <>
-      <div className=" w-[320px] relative z-40 overflow-hidden aspect-square  bg-block dark:bg-dark-block flex items-center justify-center ">
+      <div className=" w-[320px] relative z-[3] overflow-hidden aspect-square  bg-block dark:bg-dark-block flex items-center justify-center ">
         <motion.ul className="w-[280px] overflow-hidden flex items-start flex-wrap /gap-[1px]">
           {maze.map((row, rowIndex) =>
             row.map((col: number, colIndex: number) => (

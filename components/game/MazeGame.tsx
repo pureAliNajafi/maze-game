@@ -22,8 +22,8 @@ export default function MazeGame() {
     // caching the solution path to avoid re-rendering the component when maze is being solved
     return mazePathFinder(maze);
   }, [maze]);
+  const solutionPath = memoizedSolutionPath;
 
-  const [solutionPath, setSolutionPath] = useState(memoizedSolutionPath);
   const [showSolutionPath, setShowSolutionPath] = useState(false);
 
   const [difficulty, setDifficulty] = useState<Difficulty>("nov");
@@ -72,10 +72,6 @@ export default function MazeGame() {
   }, [currentLocation]);
 
   useEffect(() => {
-    setSolutionPath(mazePathFinder(maze));
-  }, [maze]);
-
-  useEffect(() => {
     const directionObject = directions.find((d) => d.label === direction);
     directionObject && applyMove(directionObject.direction[0], directionObject.direction[1]);
     setAvailableMoves(
@@ -89,7 +85,7 @@ export default function MazeGame() {
 
   return (
     <section className="w-full h-[calc(100dvh-100px)] lg:h-[calc(100dvh-120px)]  flex flex-col justify-between items-center landscape:flex-row landscape:justify-around">
-      <div className="relative z-40 scale-[0.7] h-[300px] origin-top average:scale-[1] average:mt-2 average:h-auto">
+      <div className="relative z-50 scale-[0.7] h-[300px] origin-top average:scale-[1] average:mt-2 average:h-auto">
         <div className="pt-1 pb-2 dark:text-[#a6a6a8] text-[#343a40] flex justify-between items-center">
           <Progress
             solvedCounts={solvedCounts}

@@ -18,7 +18,7 @@ const Progress = ({
   setDifficulty: (newDifficulty: Difficulty) => void;
 }) => {
   const classNames =
-    "overflow-visible z-40 dark:brightness-[0.9]  text-2xl flex-1 flex justify-between items-center min-w-0 rounded-none px-2";
+    "overflow-visible relative z-50 dark:brightness-[0.9]  text-2xl flex-1 flex justify-between items-center min-w-0 rounded-none px-2";
   const difficulties = ["nov", "mid", "exp"] as (keyof typeof solvedCounts)[];
 
   return (
