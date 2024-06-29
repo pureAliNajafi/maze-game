@@ -49,7 +49,7 @@ const InstallButton: React.FC = () => {
 
   return (
     <button
-      className="text-default-500 hover:brightness-[0.8] duration-200"
+      className="relative z-50 text-default-500 hover:brightness-[0.8] duration-200"
       onClick={handleInstallClick}
     >
       <GrInstallOption size={25} />

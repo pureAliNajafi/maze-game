@@ -64,7 +64,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => 
         })}
       >
         {/* {!isSelected || isSSR ? <SunFilledIcon size={30} /> : <MoonFilledIcon size={30} />} */}
-        <div className="w-[30px] h-[30px] relative">
+        <div className="w-[30px] h-[30px] relative z-50">
           <AnimatePresence>
             {(!isSelected || isSSR) && (
               <motion.span className="absolute left-0 top-0 /origin-[0px_50px]" {...motionDarkMode}>
