@@ -5,12 +5,12 @@ import SwipeController from "./SwipeController";
 import { useSelector } from "react-redux";
 import { RootState } from "@/config/redux/store";
 
-export interface ControllerProps {
+export interface ControllersProps {
   setDirection: (direction: string) => void;
   availableMoves: string[];
   controll: boolean;
 }
-function Controller({ setDirection, availableMoves, controll }: ControllerProps) {
+function Controllers({ setDirection, availableMoves, controll }: ControllersProps) {
   const swipeMode = useSelector((state: RootState) => state.swipeMode);
 
   return (
@@ -39,4 +39,4 @@ function Controller({ setDirection, availableMoves, controll }: ControllerProps)
   );
 }
 
-export default Controller;
+export default Controllers;

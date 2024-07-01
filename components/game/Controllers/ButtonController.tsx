@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Arrow from "../Arrow";
 import { Button } from "@nextui-org/button";
 import { directions } from "@/config/directions";
-import { ControllerProps } from ".";
+import { ControllersProps } from ".";
 
-function ButtonController({ setDirection, availableMoves, controll }: ControllerProps) {
+function ButtonController({ setDirection, availableMoves, controll }: ControllersProps) {
   useEffect(() => {}, [controll]);
   return (
     <>

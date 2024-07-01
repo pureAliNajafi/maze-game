@@ -208,7 +208,7 @@ export default function HowToPlay() {
                             <Button
                               className={` min-w-0 max-w-full gap-0 p-0 m-0 rounded-none w-full h-full flex items-center justify-center `}
                             >
-                              <Arrow rotate={-225} />
+                              <Arrow rotate={45} />
                             </Button>
                           </li>
                         </ul>

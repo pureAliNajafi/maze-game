@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import GameBoard from "@/components/game/GameBoard";
 import { directions } from "@/config/directions";
-import Controller from "@/components/game/Controller";
+import Controllers from "@/components/game/Controllers";
 import { mazePathFinder } from "@/util/mazePathFinder";
 import Actions from "./Actions";
 import Progress from "./Progress";
@@ -112,7 +112,7 @@ export default function MazeGame() {
           setMaze={setMaze}
         />
       </div>
-      <Controller setDirection={setDirection} availableMoves={availableMoves} controll={solved} />
+      <Controllers setDirection={setDirection} availableMoves={availableMoves} controll={solved} />
     </section>
   );
 }

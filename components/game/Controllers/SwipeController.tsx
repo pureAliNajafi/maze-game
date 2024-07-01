@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, PanInfo, motion, useDragControls } from "framer-motion";
 import { directions as dirs } from "@/config/directions";
-import { ControllerProps } from ".";
+import { ControllersProps } from ".";
 import { dir } from "console";
 
 const directions = dirs.filter((d) => d.label !== "stay");
@@ -13,7 +13,7 @@ const degCalculator = (x: number, y: number) => {
   return -deg;
 };
 
-const SwipeController = ({ setDirection, availableMoves, controll }: ControllerProps) => {
+const SwipeController = ({ setDirection, availableMoves, controll }: ControllersProps) => {
   const goDirection = (x: number, y: number, dirIsSafe = false) => {
     const deg = degCalculator(x, y);
     let dir = "stay";
