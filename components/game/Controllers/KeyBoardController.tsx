@@ -1,7 +1,7 @@
 "use client";
+import { ControllersProps } from "@/types";
 import React from "react";
 import { useState, useEffect } from "react";
-import { ControllersProps } from ".";
 
 function KeyBoardController({ setDirection, availableMoves, controll }: ControllersProps) {
   const [keys, setKeys] = useState({

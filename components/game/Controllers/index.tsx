@@ -4,12 +4,8 @@ import KeyBoardController from "./KeyBoardController";
 import SwipeController from "./SwipeController";
 import { useSelector } from "react-redux";
 import { RootState } from "@/config/redux/store";
+import { AvailableMoves, Controll, ControllersProps } from "@/types";
 
-export interface ControllersProps {
-  setDirection: (direction: string) => void;
-  availableMoves: string[];
-  controll: boolean;
-}
 function Controllers({ setDirection, availableMoves, controll }: ControllersProps) {
   const swipeMode = useSelector((state: RootState) => state.swipeMode);
 

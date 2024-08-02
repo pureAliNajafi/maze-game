@@ -1,24 +1,33 @@
 import { SVGProps } from "react";
 
-export type IconSvgProps = SVGProps<SVGSVGElement> & {
+export interface IconSvgProps extends SVGProps<SVGSVGElement> {
   size?: number;
-};
+}
 export type CurrentLocation = {
   row: number;
   col: number;
 };
-export interface Directions {
+export type Directions = {
   label: string;
   direction: number[];
   deg: number;
-}
+};
 export type Difficulty = "nov" | "mid" | "exp";
 
+export type AvailableMoves = string[];
+export type Controll = boolean;
+
+export type ControllersProps = {
+  setDirection: (direction: string) => void;
+  availableMoves: AvailableMoves;
+  controll: boolean;
+};
 export type SolvedCounts = {
   nov: number;
   mid: number;
   exp: number;
 };
+
 export interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   readonly userChoice: Promise<{

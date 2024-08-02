@@ -6,7 +6,7 @@ import Controllers from "@/components/game/Controllers";
 import { mazePathFinder } from "@/util/mazePathFinder";
 import Actions from "./Actions";
 import Progress from "./Progress";
-import { CurrentLocation, Difficulty, SolvedCounts } from "@/types";
+import { AvailableMoves, CurrentLocation, Difficulty, SolvedCounts } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/config/redux/store";
 import { incrementSolvedCount } from "@/config/redux/slices/solvedCountsSlice";
@@ -16,12 +16,12 @@ export default function MazeGame() {
   const [difficulty, setDifficulty] = useState<Difficulty>("nov");
   const [maze, setMaze] = useState<number[][]>(mazeGenerator("nov"));
   const [currentLocation, setCurrentLocation] = useState<CurrentLocation>({ row: 0, col: 0 });
-  const [availableMoves, setAvailableMoves] = useState<string[]>([]);
+  const [availableMoves, setAvailableMoves] = useState<AvailableMoves>([]);
   const [direction, setDirection] = useState<string>("stay");
-  const [isNewMaze, setIsNewMaze] = useState(true);
-  const [started, setStarted] = useState(false);
-  const [solved, setSolved] = useState(false);
-  const [showSolutionPath, setShowSolutionPath] = useState(false);
+  const [isNewMaze, setIsNewMaze] = useState<boolean>(true);
+  const [started, setStarted] = useState<boolean>(false);
+  const [solved, setSolved] = useState<boolean>(false);
+  const [showSolutionPath, setShowSolutionPath] = useState<boolean>(false);
 
   const memoizedSolutionPath = useMemo(() => {
     // caching the solution path to avoid re-rendering the component when maze is being solved
